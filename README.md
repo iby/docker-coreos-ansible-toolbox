@@ -18,18 +18,20 @@ TOOLBOX_USER=root
 Vincent Ambo has a great article on [provisioning CoreOS with Ansible](https://www.tazj.in/en/1410951452). Besides configuring `~/.toolboxrc` you'll also need to create `/opt/bin/python` and `/opt/bin/pip` and set `ansible_python_interpreter` inventory variable to `/opt/bin/python`.
 
 ```sh
+# Use --quiet option to prevent nspawn printing useless messages every time we call `python` and `pip`.
+
 sudo mkdir --parents '/opt/bin'
 
 sudo tee '/opt/bin/python' > /dev/null <<-'EOL'
 	#!/bin/bash
-	toolbox --bind=/home:/home python "$@"
+	toolbox --quiet --bind=/home:/home python "$@"
 EOL
 
 sudo chmod +x '/opt/bin/python'
 
 sudo tee '/opt/bin/pip' > /dev/null <<-'EOL'
 	#!/bin/bash
-	toolbox --bind=/home:/home pip "$@"
+	toolbox --quiet --bind=/home:/home pip "$@"
 EOL
 
 sudo chmod +x '/opt/bin/pip'
