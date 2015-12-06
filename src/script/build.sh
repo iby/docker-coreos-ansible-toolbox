@@ -17,18 +17,6 @@ apk --update add \
 echo 'Installing pip.'
 python /docker/get-pip.py
 
-# Install etcdctl and fleetctl.
-
-echo -n 'Installing etcdctl and fleetctl…'
-echo '' >> /etc/profile
-
-mv /docker/etcdctl /usr/bin/
-
-mv /docker/fleetctl /usr/bin/
-echo "export FLEETCTL_ENDPOINT='unix:///media/root/var/run/fleet.sock'" >> /etc/profile
-
-echo ' OK!'
-
 # Installing ansible.
 
 echo 'Installing Ansible.'
