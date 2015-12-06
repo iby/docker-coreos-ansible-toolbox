@@ -6,6 +6,12 @@ CoreOS is awesome, so is [Ansible](https://github.com/ansible/ansible). However,
 
 [![Circle CI](https://circleci.com/gh/ianbytchek/docker-coreos-ansible-toolbox.svg?style=svg)](https://circleci.com/gh/ianbytchek/docker-coreos-ansible-toolbox)
 
+## Attention
+
+This repository was created with hopes of possibility to easily execute ansible commands within toolbox with full access to CoreOS resources. The general idea is great, but fails in practice when you need to do anything outside pure Python, for example, control etcd or fleet, or systemd, or something else that lives on the host. You can provide access to many things by mounting executables and dependencies as volumes, but this starts to feel hacky very quickly and sometimes doesn't work.
+
+My advice is to setup Python on the host if dealing with similar scenarios. Otherwise, using Python withing toolbox is a neat way to do stuff, highly recommended.
+
 ## Running
 
 Toolbox setup and installation is covered in CoreOS [documentation](https://coreos.com/os/docs/latest/install-debugging-tools.html), in a nutshell, to make it the default toolbox image you must specify `ianbytchek/coreos-ansible-toolbox` image in `~/.toolboxrc` parameters manually or via cloud-config.
