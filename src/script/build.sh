@@ -9,7 +9,10 @@ cd $(dirname $0)
 echo 'Installing Python.'
 apk --update add \
     py-crypto \
+    py-cryptography \
+    py-cffi \
     python \
+    ca-certificates \
     tzdata
 
 # Install pip.
