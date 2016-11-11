@@ -30,7 +30,7 @@ sudo mkdir --parents '/opt/bin'
 
 sudo tee '/opt/bin/python' > /dev/null <<-'EOL'
 	#!/bin/bash
-	toolbox --quiet --bind=/home:/home python "$@"
+	toolbox --quiet --bind=/home:/home --bind=/var/run/docker.sock:/var/run/docker.sock python "$@"
 EOL
 
 sudo chmod +x '/opt/bin/python'
