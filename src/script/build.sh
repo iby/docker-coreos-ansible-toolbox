@@ -13,6 +13,7 @@ apk --update add \
     py-cffi \
     python \
     ca-certificates \
+    docker \
     tzdata
 
 # Install pip.
@@ -24,6 +25,10 @@ python /docker/get-pip.py
 
 echo 'Installing Ansible.'
 pip install ansible
+
+# Installing docker-py.
+echo 'Installing docker-py.'
+pip install docker-py
 
 echo -n 'Cleaning up container…'
 
