@@ -4,7 +4,9 @@ machine:
 
 dependencies:
   override:
-    - ./build/ci/script/build.sh
+    - ./build/ci/script/build.sh:
+        environment:
+          GITHUB_TOKEN: 42ff89070c6787399853e615fc86b7a06edbb123
 
 test:
   override:
